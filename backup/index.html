@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- <div style="position:fixed;justify-content:center;">
+      <video id="player" 
+      style="opacity:0.5;display:flex;position:fixed;justify-content:center;height:120vh;z-index: 2;"
+      src="images/VID_20211209_145626_6.webm" loop muted autoplay playsinline></video>
+    </div> -->
+    
+
+    <video id="transitionIn" 
+    style="opacity:1;display:flex;position:fixed;justify-content:center;height:120vh;z-index: 7;pointer-events:none;"
+    
+    src="images/Smoke in.webm" muted playsinline></video>
+
+    <video id="transitionOut" 
+    style="opacity:1;display:flex;position:fixed;justify-content:center;height:120vh;z-index: 7;pointer-events:none;"
+    src="images/Smoke out.webm" autoplay muted playsinline></video>
+
+    <div id="root">
+
+    <div class="header">
+      <h1 style="position:relative;z-index: 2;">The Ceiling Project</h1>
+      <!-- <div style="display:flex; flex-direction: row-reverse;">
+        <h4>Test</h4>
+      </div> -->
+    </div>
+
+    <div style="position:fixed;left:10px;top:45%;z-index: 1">
+      <h1 id="paintingName" class="paintingDescription">Painting name</h1>
+      <p class="paintingDescription" style="width: 30%; white-space: normal;">Lorem ipsum is placeholder text commonly used in the graphic, print, 
+        and publishing industries for previewing layouts and visual mockups.</p>
+    </div>
+
+    <div class="parentKisame">
+      <img src="images/Clean Plate v4.png" style="width:60%;">
+      <video id="player" 
+      src="images/Turumba.mp4" 
+      class="turumba"
+      style="
+      top:29.20%;
+      left:43.18%;
+      opacity: 1;
+      "
+      onmouseover="onHoverVideo(this,'Turumba')" onmouseout="onMouseLeave(this)" 
+      onmousedown="onMouseClick(this, 'Turumba')"
+      muted playsinline></video>
+
+      <video id="player" 
+      src="images/Procession.mp4" 
+      class="turumba"
+      style="
+      top:43.1%;
+      left:43.18%;
+      opacity: 1;
+      "
+      onmouseover="onHoverVideo(this,'Storya ng Pakil')" onmouseout="onMouseLeave(this)"
+      muted playsinline></video>
+
+      <video id="player" 
+      src="images/SPA.mp4" 
+      class="turumba"
+      style="
+      top:70.25%;
+      left:43.2%;
+      opacity: 1;
+      "
+      onmouseover="onHoverVideo(this,'San Pedro de Alcantara')" onmouseout="onMouseLeave(this)"
+      muted playsinline></video>
+    </div>
+
+    </div>
+    
+  </body>
+</html>
