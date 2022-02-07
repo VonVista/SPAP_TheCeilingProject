@@ -11,37 +11,59 @@
 const paintingNameText = document.getElementById("paintingName");
 const transitionIn = document.getElementById("transitionIn");
 
+const paintings = document.getElementsByClassName("painting")
+
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   gsap.from("#root", {duration: 1, opacity: 0});
 });
+
+function sleep(ms){
+  return new Promise(resolve => setTimeout(resolve,ms));
+}
+
+async function triggerPaintings() {
+  await sleep(3000);
+  for(let painting of paintings){
+    painting.play()
+
+    await sleep(500);
+  }
+
+}
+
+triggerPaintings()
 
 
 
 
 var intervalRewind;
 
+var intervals = new Map();
+
 function onHoverVideo(element, name) {
   element.currentTime = 0;
   element.play();
-  clearInterval(intervalRewind);
+  //clearInterval(intervalRewind);
   // element.play();
 
   paintingNameText.textContent = name;
   paintingTL.play();
-  console.log("HOVER")
+  // console.log("HOVER")
 }
 
 function onMouseLeave(element) {
   // element.currentTime = 0;
   paintingTL.reverse();
-  intervalRewind = setInterval(function(){
+
+  intervals.set(element.id, setInterval(function(){
     element.pause();
     element.currentTime -= 0.1
-    if(element.currentTime == 0){
-        clearInterval(intervalRewind);
+    if(element.currentTime <= 0){
+        clearInterval(intervals.get(element.id));
+        intervals.delete(element.id);
     }
-  },25);
+  },25));
 }
 
 function onMouseClick(element, name) {
@@ -52,3 +74,8 @@ function onMouseClick(element, name) {
 
 paintingTL = gsap.timeline({paused:true});
 paintingTL.from(".paintingDescription", {opacity: 0, x: "-=100px", duration: 1, ease: "power1.inOut"});
+
+
+// setInterval(function(){
+//   console.log(intervals)
+// }, 200);
