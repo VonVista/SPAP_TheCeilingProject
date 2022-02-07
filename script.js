@@ -46,6 +46,7 @@ function onHoverVideo(element, name) {
   element.play();
   //clearInterval(intervalRewind);
   // element.play();
+  gsap.to("#" + element.id, {scale: 0.98, duration: 0.5, ease: "power1.inOut"});
 
   paintingNameText.textContent = name;
   paintingTL.play();
@@ -55,6 +56,7 @@ function onHoverVideo(element, name) {
 function onMouseLeave(element) {
   // element.currentTime = 0;
   paintingTL.reverse();
+  gsap.to("#" + element.id, {scale: 1, duration: 0.5, ease: "power1.inOut"});
 
   intervals.set(element.id, setInterval(function(){
     element.pause();
@@ -73,7 +75,7 @@ function onMouseClick(element, name) {
 }
 
 paintingTL = gsap.timeline({paused:true});
-paintingTL.from(".paintingDescription", {opacity: 0, x: "-=100px", duration: 1, ease: "power1.inOut"});
+paintingTL.from(".paintingDescBox", {opacity: 0, y: "+=100px", duration: 1, ease: "power1.inOut"});
 
 
 // setInterval(function(){
