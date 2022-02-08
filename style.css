@@ -75,11 +75,12 @@ body {
 
 .parentKisame {
   position: relative;
-  right: -30%;
+  /* left: 10%; */
   top: 20%;
   /* flex-direction: row; */
   gap: 10px;
   justify-content: center;
+  /* transform: translateX(10%); */
   /* align-items:flex-start; */
 }
 
@@ -104,9 +105,13 @@ body {
   background-color: white;
 }
 
+/* .paintingDescTitle {
+  font-size: calc(60px - 0.5vw);
+} */
+
 .paintingDescription {
   opacity: 1;
-  
+  /* font-size: calc(50px - 0.5vw); */
   width: 100%; 
   white-space: normal;
   

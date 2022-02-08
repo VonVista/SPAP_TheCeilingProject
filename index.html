@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width,height=device-height">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -55,6 +57,42 @@
     <div class="parentKisame">
       <!-- <img src="images/Clean Plate v4.png" style="height:300vh;filter: grayscale(100%);"> -->
       <img src="images/Clean Plate Outline White.png" style="height:300vh;">
+
+      <video id="sepulcro" 
+      src="images/Sepulcro.mp4" 
+      class="painting"
+      style="
+      top:4.2vh;
+      left:2.2vh;
+      opacity: 1;
+      height: 56.9vh;
+      "
+      onmouseover="onHoverVideo(this,'History of San Sepulcro de Pakil')" onmouseout="onMouseLeave(this)" 
+      muted playsinline></video>
+
+      <video id="pingas" 
+      src="images/Pingas.mp4" 
+      class="painting"
+      style="
+      top:4.2vh;
+      left:96.5vh;
+      opacity: 1;
+      height: 56.9vh;
+      "
+      onmouseover="onHoverVideo(this,'History of Mt. Pingas')" onmouseout="onMouseLeave(this)" 
+      muted playsinline></video>
+
+      <video id="sorrows" 
+      src="images/Sorrows.mp4" 
+      class="painting"
+      style="
+      top:67.70vh;
+      left:25.7vh;
+      opacity: 1;
+      height: 48.7vh;
+      "
+      onmouseover="onHoverVideo(this,'The Seven Sorrows')" onmouseout="onMouseLeave(this)" 
+      muted playsinline></video>
 
       <video id="turumba" 
       src="images/Turumba.mp4" 
@@ -182,7 +220,7 @@
     </div>
 
     <div class="paintingDescBox">
-      <h1 id="paintingName" class="paintingDescription">Painting name</h1>
+      <h1 id="paintingName" class="paintingDescTitle"></h1>
       <p class="paintingDescription">Lorem ipsum is placeholder text commonly used in the graphic, print, 
         and publishing industries for previewing layouts and visual mockups.</p>
     </div>

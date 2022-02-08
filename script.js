@@ -8,10 +8,14 @@
 // var text = gsap.timeline();
 // text.from("#text1", {y: "100%", duration: 1, ease: "power1.inOut"});
 
+gsap.registerPlugin(TextPlugin);
+
 const paintingNameText = document.getElementById("paintingName");
 const transitionIn = document.getElementById("transitionIn");
 
-const paintings = document.getElementsByClassName("painting")
+const paintings = document.getElementsByClassName("painting");
+
+var curPaintingTitle = "Yes";
 
 
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -32,7 +36,7 @@ async function triggerPaintings() {
 
 }
 
-triggerPaintings()
+// triggerPaintings()
 
 
 
@@ -48,7 +52,10 @@ function onHoverVideo(element, name) {
   // element.play();
   gsap.to("#" + element.id, {scale: 0.98, duration: 0.5, ease: "power1.inOut"});
 
-  paintingNameText.textContent = name;
+  // paintingNameText.textContent = name;
+  gsap.to(".paintingDescTitle", {text: name, duration: 1});
+  curPaintingTitle = name;
+  console.log(curPaintingTitle)
   paintingTL.play();
   // console.log("HOVER")
 }
@@ -57,6 +64,7 @@ function onMouseLeave(element) {
   // element.currentTime = 0;
   paintingTL.reverse();
   gsap.to("#" + element.id, {scale: 1, duration: 0.5, ease: "power1.inOut"});
+  gsap.to(".paintingDescTitle", {text: "", duration: 1});
 
   intervals.set(element.id, setInterval(function(){
     element.pause();
